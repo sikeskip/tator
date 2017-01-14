@@ -1,9 +1,14 @@
 *.iml
-.gradle/*
+/.gradle/*
 /local.properties
 /.idea/*
 /gradle/*
+/2017TatorScoutFirstSteamworks
+/build.gradle
+/gradle.properties
+/gradlew
+/settings.gradle
 .DS_Store
-/build
+/build/*
 /captures
 .externalNativeBuild
