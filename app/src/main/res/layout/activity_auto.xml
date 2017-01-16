@@ -68,10 +68,38 @@
         android:text="Dumped Hopper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="320dp"
+        android:layout_marginLeft="530dp"
         android:layout_marginTop="-10dp"
         android:layout_alignTop="@+id/imgField"
         android:id="@+id/radBtnDumpedHopper1"/>
+
+    <RadioButton
+        android:text="Dumped Hopper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="360dp"
+        android:layout_marginTop="-10dp"
+        android:layout_alignTop="@+id/imgField"
+        android:id="@+id/radBtnDumpedHopper2"/>
+
+    <RadioButton
+        android:text="Dumped Hopper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="340dp"
+        android:layout_alignTop="@+id/imgField"
+        android:id="@+id/radBtnDumpedHopper3"/>
+
+    <RadioButton
+        android:text="Dumped Hopper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="500dp"
+        android:layout_marginTop="340dp"
+        android:layout_alignTop="@+id/imgField"
+        android:id="@+id/radBtnDumpedHopper4"/>
+
     <!--Stuff in Margins-->
     <RadioButton
         android:text="No Gear"
