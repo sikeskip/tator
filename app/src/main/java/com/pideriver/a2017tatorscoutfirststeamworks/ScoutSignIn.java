@@ -30,7 +30,7 @@ public class ScoutSignIn extends AppCompatActivity {
 
     String[] spinnerAry;
 
-    SharedPreferences preferences = this.getSharedPreferences("preferences",Context.MODE_PRIVATE);
+    SharedPreferences preferences;
 
 
     @Override
@@ -38,7 +38,7 @@ public class ScoutSignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scout_sign_in);
 
-
+        preferences = this.getSharedPreferences("preferences",Context.MODE_PRIVATE);
 
         //seting up widgets
         toSetup = (Button)findViewById(R.id.btnToSetup);
