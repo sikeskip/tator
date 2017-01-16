@@ -2,6 +2,7 @@ package com.pideriver.a2017tatorscoutfirststeamworks;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,8 @@ public class ScoutSignIn extends AppCompatActivity {
     Toast toast;
 
     String[] spinnerAry;
+
+    SharedPreferences preferences = this.getSharedPreferences("preferences",Context.MODE_PRIVATE);
 
 
     @Override
@@ -73,7 +76,9 @@ public class ScoutSignIn extends AppCompatActivity {
                     }
                     else{
                         //Log.d("CREATION",scoutName.getText().toString().length() + "");
-                        /**NEED TO DO SHARED PREFERANCES*/
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("scoutName", scoutName.getText().toString());
+                        editor.putString("group",groupSpinner.getSelectedItem().toString());
                         Intent intent  = new Intent(context,MatchSetup.class);
                         startActivity(intent);
                     }
