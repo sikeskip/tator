@@ -1,0 +1,50 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/bMinus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_toLeftOf="@+id/tvCount"
+        android:layout_marginRight="5dp"
+        android:text="-" />
+
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/bPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_toRightOf="@+id/tvCount"
+        android:layout_marginLeft="5dp"
+        android:text="+" />
+
+    <Button
+        android:id="@+id/bPlus10"
+        android:layout_marginTop="10dp"
+        android:layout_width="43dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bPlus"
+        android:layout_alignLeft="@+id/bPlus"
+        android:text="+10" />
+    <Button
+        android:id="@+id/bMinus10"
+        android:layout_width="43dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bMinus"
+        android:layout_alignLeft="@+id/bMinus"
+        android:text="-10"/>
+</merge>
