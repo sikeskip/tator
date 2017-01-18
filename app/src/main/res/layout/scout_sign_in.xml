@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnToSetup"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/spnGroupSpinner"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
