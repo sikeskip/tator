@@ -44,7 +44,6 @@ public class MatchSetup extends AppCompatActivity {
     private LocationManager start, redOrBlue;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         System.out.println("Hello OnCreate");
@@ -64,6 +63,22 @@ public class MatchSetup extends AppCompatActivity {
         btnToAuto = (Button) findViewById(R.id.btnToAuto);
         spnTeamSpinner = (Spinner) findViewById(R.id.spnTeamSpinner);
         imgFieldSetup = (ImageView) findViewById(R.id.imgFieldSetup);
+        //Setting Up Spinner
+        spinnerAry = new String[7];
+        //DummyData
+
+        preferences = this.getSharedPreferences("preferences", MODE_PRIVATE);
+
+        //Initializing Views
+        radStartPos1 = (RadioButton) findViewById(R.id.radStartPos1);
+        radStartPos2 = (RadioButton) findViewById(R.id.radStartPos2);
+        radStartPos3 = (RadioButton) findViewById(R.id.radStartPos3);
+        radStartPos4 = (RadioButton) findViewById(R.id.radStartPos4);
+        radRed = (RadioButton) findViewById(R.id.radRed);
+        radBlue = (RadioButton) findViewById(R.id.radBlue);
+        btnToAuto = (Button) findViewById(R.id.btnToAuto);
+        spnTeamSpinner = (Spinner) findViewById(R.id.spnTeamSpinner);
+
         //Setting Up Spinner
         spinnerAry = new String[7];
         //DummyData
@@ -162,7 +177,7 @@ public class MatchSetup extends AppCompatActivity {
             System.out.println("hello newArraylist");
             teams.add("Pick A Team");
             System.out.println("hello Pickateam");
-            while (scanner.hasNext()){
+            while (scanner.hasNext()) {
                 String team = scanner.next().trim();
                 System.out.println("hello Scanner.next");
                 teams.add(team);
@@ -173,13 +188,13 @@ public class MatchSetup extends AppCompatActivity {
 
             spinnerAry = teams.toArray(new String[teams.size()]);
             System.out.println("hello ToArray");
-        }
-        catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             Toast t = Toast.makeText(context,
                     "File not found!", Toast.LENGTH_LONG);
             t.show();
         }
     }
+
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -189,7 +204,7 @@ public class MatchSetup extends AppCompatActivity {
         //Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
         System.out.println("Hello ReachedVSP");
-        if (permission != PackageManager.PERMISSION_GRANTED){
+        if (permission != PackageManager.PERMISSION_GRANTED) {
             System.out.println("Hello No Permission");
             //We don't have permission so prompt the user
             ActivityCompat.requestPermissions(
