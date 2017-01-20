@@ -23,8 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radStartPos1"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="120dp"
         android:layout_alignTop="@+id/imgFieldSetup"
         android:layout_alignLeft="@+id/imgFieldSetup"
         android:background="#7800d0ff"/>
@@ -34,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radStartPos2"
+        android:layout_marginLeft="5dp"
         android:layout_alignTop="@+id/radStartPos1"
         android:layout_toRightOf="@+id/radStartPos1"
         android:background="#7800d0ff"/>
@@ -42,6 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radStartPos3"
+        android:layout_marginLeft="5dp"
         android:layout_alignTop="@+id/radStartPos2"
         android:layout_toRightOf="@+id/radStartPos2"
         android:background="#7800d0ff"/>
@@ -50,6 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/radStartPos4"
+        android:layout_marginLeft="5dp"
         android:layout_alignTop="@+id/radStartPos3"
         android:layout_toRightOf="@+id/radStartPos3"
         android:background="#7800d0ff" />
@@ -59,6 +62,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/radStartPosExample"
         android:text="Starting Positions"
+        android:checked="true"
         android:background="#00d0ff"
         />
 
@@ -69,12 +73,42 @@
         android:id="@+id/spnTeamSpinner"/>
 
     <Button
-        android:text="Button"
+        android:text="To Auto"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:id="@+id/btnToAuto" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtRedOrBlue"
+        android:layout_alignParentRight="true"
+        android:textSize="20dp"
+        android:text="Red or Blue?"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radgrpRedOrBlue"
+        android:layout_marginRight="45dp"
+        android:layout_below="@+id/txtRedOrBlue"
+        android:layout_alignParentRight="true">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radRed"
+            android:background="#ff0000"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radBlue"
+            android:background="#0000ff"/>
+    </RadioGroup>
 
 </RelativeLayout>
