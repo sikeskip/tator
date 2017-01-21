@@ -20,20 +20,33 @@
         android:src="@drawable/edit_red_side"
         />
 
+    <Button
+        android:text="To Teleop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnToTeleop"
+        android:layout_alignRight="@+id/imgField"
+        android:layout_alignTop="@+id/imgField"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="350dp"/>
+
     <TextView
         android:text="Accuracy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="350dp"
-        android:layout_marginTop="380dp"/>
+        android:layout_marginTop="380dp"
+        android:id="@+id/tvAccuracy"
+        android:textColor="#000000"
+        android:layout_alignTop="@+id/imgField"/>
 
     <SeekBar
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imgField"
+        android:layout_alignTop="@+id/tvAccuracy"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="350dp"
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/sliderAccuracy" />
 
     <!--Goal Counters-->
@@ -71,7 +84,7 @@
         android:layout_alignTop="@+id/imgField"
         android:layout_alignLeft="@+id/imgField"
         android:textColor="#ffffff"
-        android:id="@+id/ckBxGearPegTop"/>
+        android:id="@+id/ckBxGearPeg1"/>
 
     <CheckBox
         android:text="Gear"
@@ -82,7 +95,7 @@
         android:layout_alignTop="@+id/imgField"
         android:layout_alignLeft="@+id/imgField"
         android:textColor="#ffffff"
-        android:id="@+id/ckBxGearPegMid"/>
+        android:id="@+id/ckBxGearPeg2"/>
 
     <CheckBox
         android:text="Gear"
@@ -93,7 +106,7 @@
         android:layout_alignTop="@+id/imgField"
         android:layout_alignLeft="@+id/imgField"
         android:textColor="#ffffff"
-        android:id="@+id/ckBxGearPegBottom"/>
+        android:id="@+id/ckBxGearPeg3"/>
 
     <!--Hoppers-->
     <CheckBox
