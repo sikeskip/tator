@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 
 import java.util.prefs.Preferences;
 
@@ -40,6 +41,8 @@ public class Auto extends AppCompatActivity {
     Counter lowGoalCycles;
     Counter highGoalCycles;
 
+    SeekBar accuracy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +58,7 @@ public class Auto extends AppCompatActivity {
         }
         //next activity button
         toTeleop = (Button)findViewById(R.id.btnToTeleop);
-        //setting checkboxes and counters
+        //setting checkboxes, counters and seekbar
         gearPlacement1=(CheckBox)findViewById(R.id.ckBxGearPeg1);
         gearPlacement2=(CheckBox)findViewById(R.id.ckBxGearPeg2);
         gearPlacement3=(CheckBox)findViewById(R.id.ckBxGearPeg3);
@@ -70,6 +73,17 @@ public class Auto extends AppCompatActivity {
         crossedLine=(CheckBox)findViewById(R.id.ckBxCrossedLine);
         lowGoalCycles=(Counter)findViewById(R.id.ctLowGoalCycles);
         highGoalCycles=(Counter)findViewById(R.id.ctHighGoalCycles);
+
+        accuracy = (SeekBar) findViewById(R.id.sliderAccuracy);
+
+        //setting onClickListeners
+        toTeleop.setOnClickListener(listen);
+        gearPlacement1.setOnClickListener(listen);
+        gearPlacement2.setOnClickListener(listen);
+        gearPlacement3.setOnClickListener(listen);
+        noGear.setOnClickListener(listen);
+        gearFail.setOnClickListener(listen);
+
     }
 
     private View.OnClickListener listen = new View.OnClickListener(){
@@ -78,6 +92,7 @@ public class Auto extends AppCompatActivity {
                 case R.id.btnToTeleop:
 
                     SharedPreferences.Editor editor = preferences.edit();
+                    CheckBox[] ary;
 
                     //gear placement
                     if(gearPlacement1.isChecked()) {
@@ -86,7 +101,7 @@ public class Auto extends AppCompatActivity {
                     else if(gearPlacement2.isChecked()){
                         editor.putInt("gearPlacement", 2);
                     }
-                    else{
+                    else if(gearPlacement3.isChecked()){
                         editor.putInt("gearPlacement", 3);
                     }
                     //hoppers
@@ -94,19 +109,48 @@ public class Auto extends AppCompatActivity {
                     editor.putBoolean("hopper2",hopperPlace2.isChecked());
                     editor.putBoolean("hopper3",hopperPlace3.isChecked());
                     editor.putBoolean("hopper4",hopperPlace4.isChecked());
-                    //no gear, failed to place gear, or crossed line
+                    //no gear, failed to place gear, and crossed line
                     editor.putBoolean("noGear",noGear.isChecked());
                     editor.putBoolean("gearFail",gearFail.isChecked());
                     editor.putBoolean("crossedLine",crossedLine.isChecked());
                     //cycles for goals
                     editor.putInt("lowGearCycles",lowGoalCycles.getCount());
                     editor.putInt("highGearCycles",highGoalCycles.getCount());
+                    //accuracy slider
+                    editor.putInt("accuracy",accuracy.getProgress());
 
                     Intent intent  = new Intent(context,Teleop.class);
                     startActivity(intent);
 
                     break;
+                case R.id.ckBxNoGear:
+                    ary =new CheckBox[]{gearFail,gearPlacement1,gearPlacement2,gearPlacement3};
+                    UncheckBoxes(ary);
+                    break;
+                case R.id.ckBxGearFail:
+                    ary =new CheckBox[]{noGear};
+                    UncheckBoxes(ary);
+                    break;
+                case R.id.ckBxGearPeg1:
+                    ary =new CheckBox[]{noGear,gearPlacement2,gearPlacement3};
+                    UncheckBoxes(ary);
+                    break;
+                case R.id.ckBxGearPeg2:
+                    ary =new CheckBox[]{noGear,gearPlacement1,gearPlacement3};
+                    UncheckBoxes(ary);
+                    break;
+                case R.id.ckBxGearPeg3:
+                    ary =new CheckBox[]{noGear,gearPlacement1,gearPlacement2};
+                    UncheckBoxes(ary);
+                    break;
             }
         }
     };
+
+    private void UncheckBoxes(CheckBox[] ary)
+    {
+        for(CheckBox x:ary){
+            x.setChecked(false);
+        }
+    }
 }
