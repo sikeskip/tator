@@ -71,7 +71,7 @@
         android:layout_marginLeft="-70dp"
         android:layout_marginTop="20dp"
         android:id="@+id/sliderAccuracy" />
-
+    
     <!--Counters + ckbx for too quick-->
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
         android:layout_width="wrap_content"
