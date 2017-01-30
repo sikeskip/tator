@@ -43,8 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Intermittent"
-        android:layout_marginTop=""
-        android:layout_marginLeft=""
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="0dp"
         android:layout_alignTop="@+id/ckBxDead"
         android:layout_alignLeft="@+id/ckBxDead"
         android:id="@+id/ckBxIntermittent" />
@@ -52,8 +52,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tipped Over"
-        android:layout_marginTop=""
-        android:layout_marginLeft=""
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="0dp"
         android:layout_alignTop="@+id/ckBxIntermittent"
         android:layout_alignLeft="@+id/ckBxIntermittent"
         android:id="@+id/ckBxTippedOver" />
@@ -61,8 +61,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stuck On Ball"
-        android:layout_marginTop=""
-        android:layout_marginLeft=""
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="0dp"
         android:layout_alignTop="@+id/ckBxTippedOver"
         android:layout_alignLeft="@+id/ckBxTippedOver"
         android:id="@+id/ckBxStuckOnBall" />
@@ -70,8 +70,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Defended"
-        android:layout_marginTop=""
-        android:layout_marginLeft=""
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="0dp"
         android:layout_alignTop="@+id/ckBxStuckOnBall"
         android:layout_alignLeft="@+id/ckBxStuckOnBall"
         android:id="@+id/ckBxDefended" />
