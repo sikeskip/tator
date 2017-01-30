@@ -79,6 +79,7 @@ public class ScoutSignIn extends AppCompatActivity {
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putString("scoutName", scoutName.getText().toString());
                         editor.putString("group",groupSpinner.getSelectedItem().toString());
+                        editor.commit();
                         Intent intent  = new Intent(context,MatchSetup.class);
                         startActivity(intent);
                     }
