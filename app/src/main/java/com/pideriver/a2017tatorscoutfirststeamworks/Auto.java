@@ -52,7 +52,7 @@ public class Auto extends AppCompatActivity {
 
         preferences = this.getSharedPreferences("preferences",Context.MODE_PRIVATE);
 
-        if (preferences.getString("allianceColor","")=="blue")
+        if (preferences.getString("allianceColor","").equals("blue"))
         {
             field.setImageResource(R.drawable.edit_blue_side);
             gearPlacement3=(CheckBox)findViewById(R.id.ckBxGearPeg1);
@@ -127,6 +127,7 @@ public class Auto extends AppCompatActivity {
                     //accuracy slider
                     editor.putInt("accuracy",accuracy.getProgress());
 
+                    editor.commit();
                     Intent intent  = new Intent(context,Teleop.class);
                     startActivity(intent);
 
@@ -140,7 +141,10 @@ public class Auto extends AppCompatActivity {
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg1:
-                    ary =new CheckBox[]{noGear,gearPlacement2,gearPlacement3};
+                    if(preferences.getString("allianceColor","").equals("red")){
+                    ary =new CheckBox[]{noGear,gearPlacement2,gearPlacement3};}
+                    else{
+                        ary =new CheckBox[]{noGear,gearPlacement2,gearPlacement1};}
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg2:
@@ -148,7 +152,11 @@ public class Auto extends AppCompatActivity {
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg3:
-                    ary =new CheckBox[]{noGear,gearPlacement1,gearPlacement2};
+                    if(preferences.getString("allianceColor","").equals("red")){
+                    ary =new CheckBox[]{noGear,gearPlacement1,gearPlacement2};}
+                    else{
+                        ary =new CheckBox[]{noGear,gearPlacement3,gearPlacement2};
+                    }
                     UncheckBoxes(ary);
                     break;
             }
