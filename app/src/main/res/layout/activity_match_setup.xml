@@ -85,21 +85,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtRedOrBlue"
+        android:layout_below="@+id/spnTeamSpinner"
         android:layout_alignParentRight="true"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:text="Red or Blue?"/>
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radgrpRedOrBlue"
-        android:layout_marginRight="45dp"
         android:layout_below="@+id/txtRedOrBlue"
         android:layout_alignParentRight="true">
+
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/txtRedOrBlue"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="40dp"
             android:id="@+id/radRed"
             android:background="#ff0000"
             />
@@ -107,8 +110,10 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/radRed"
+            android:layout_marginRight="40dp"
+            android:layout_alignParentRight="true"
             android:id="@+id/radBlue"
             android:background="#0000ff"/>
     </RadioGroup>
-
 </RelativeLayout>

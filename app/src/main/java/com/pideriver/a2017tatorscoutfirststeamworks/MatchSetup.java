@@ -44,6 +44,7 @@ public class MatchSetup extends AppCompatActivity {
     private LocationManager start, redOrBlue;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         System.out.println("Hello OnCreate");
@@ -68,7 +69,7 @@ public class MatchSetup extends AppCompatActivity {
         //DummyData
 
         preferences = this.getSharedPreferences("preferences", MODE_PRIVATE);
-
+        context = this;
         //Initializing Views
         radStartPos1 = (RadioButton) findViewById(R.id.radStartPos1);
         radStartPos2 = (RadioButton) findViewById(R.id.radStartPos2);
@@ -109,6 +110,7 @@ public class MatchSetup extends AppCompatActivity {
         start.add(radStartPos2, "Next to Key");
         start.add(radStartPos3, "Middle of Airship");
         start.add(radStartPos4, "Next to Loading Zone");
+
 
         //LocationManager redOrBlue
         redOrBlue = new LocationManager(context);
@@ -213,5 +215,6 @@ public class MatchSetup extends AppCompatActivity {
                     REQUEST_EXTERNAL_STORAGE
             );
         }
+
     }
 }
