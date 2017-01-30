@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.SeekBar;
 
 import org.w3c.dom.Comment;
 
@@ -31,6 +32,8 @@ public class Teleop extends AppCompatActivity {
     Counter gearsPlaced1;
     Counter gearsPlaced2;
     Counter gearsPlaced3;
+
+    SeekBar accuracy;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +59,9 @@ public class Teleop extends AppCompatActivity {
         gearsPlaced1 = (Counter)findViewById(R.id.ctGearPlace1);
         gearsPlaced2 = (Counter)findViewById(R.id.ctGearPlace2);
         gearsPlaced3 = (Counter)findViewById(R.id.ctGearPlace3);
+
+        //seekbar
+        accuracy = (SeekBar)findViewById(R.id.sliderAccuracy);
     }
 
     private View.OnClickListener listen = new View.OnClickListener(){
@@ -75,6 +81,7 @@ public class Teleop extends AppCompatActivity {
                     editor.putInt("GearsPlaced1",gearsPlaced1.getCount());
                     editor.putInt("GearsPlaced2",gearsPlaced2.getCount());
                     editor.putInt("GearsPlaced3",gearsPlaced3.getCount());
+                    editor.putInt("accuracyTele",accuracy.getProgress());
                     Intent intent  = new Intent(context,Comments.class);
                     startActivity(intent);
                     break;

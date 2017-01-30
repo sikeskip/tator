@@ -34,7 +34,7 @@
         android:text="Accuracy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="350dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="380dp"
         android:id="@+id/tvAccuracy"
         android:textColor="#000000"
@@ -71,7 +71,7 @@
         android:layout_marginLeft="-70dp"
         android:layout_marginTop="20dp"
         android:id="@+id/sliderAccuracy" />
-    
+
     <!--Counters + ckbx for too quick-->
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
         android:layout_width="wrap_content"
