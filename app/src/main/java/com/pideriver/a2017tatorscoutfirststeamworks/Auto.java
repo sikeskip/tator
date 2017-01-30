@@ -52,21 +52,29 @@ public class Auto extends AppCompatActivity {
 
         preferences = this.getSharedPreferences("preferences",Context.MODE_PRIVATE);
 
-        if (preferences.getString("fieldColor","")=="blue")
+        if (preferences.getString("allianceColor","")=="blue")
         {
             field.setImageResource(R.drawable.edit_blue_side);
+            gearPlacement3=(CheckBox)findViewById(R.id.ckBxGearPeg1);
+            gearPlacement2=(CheckBox)findViewById(R.id.ckBxGearPeg2);
+            gearPlacement1=(CheckBox)findViewById(R.id.ckBxGearPeg3);
+            hopperPlace3=(CheckBox)findViewById(R.id.ckBxDumpedHopper1);
+            hopperPlace4=(CheckBox)findViewById(R.id.ckBxDumpedHopper2);
+            hopperPlace1=(CheckBox)findViewById(R.id.ckBxDumpedHopper3);
+            hopperPlace2=(CheckBox)findViewById(R.id.ckBxDumpedHopper4);
+        }
+        else{
+            gearPlacement1=(CheckBox)findViewById(R.id.ckBxGearPeg1);
+            gearPlacement2=(CheckBox)findViewById(R.id.ckBxGearPeg2);
+            gearPlacement3=(CheckBox)findViewById(R.id.ckBxGearPeg3);
+            hopperPlace1=(CheckBox)findViewById(R.id.ckBxDumpedHopper1);
+            hopperPlace2=(CheckBox)findViewById(R.id.ckBxDumpedHopper2);
+            hopperPlace3=(CheckBox)findViewById(R.id.ckBxDumpedHopper3);
+            hopperPlace4=(CheckBox)findViewById(R.id.ckBxDumpedHopper4);
         }
         //next activity button
         toTeleop = (Button)findViewById(R.id.btnToTeleop);
         //setting checkboxes, counters and seekbar
-        gearPlacement1=(CheckBox)findViewById(R.id.ckBxGearPeg1);
-        gearPlacement2=(CheckBox)findViewById(R.id.ckBxGearPeg2);
-        gearPlacement3=(CheckBox)findViewById(R.id.ckBxGearPeg3);
-
-        hopperPlace1=(CheckBox)findViewById(R.id.ckBxDumpedHopper1);
-        hopperPlace2=(CheckBox)findViewById(R.id.ckBxDumpedHopper2);
-        hopperPlace3=(CheckBox)findViewById(R.id.ckBxDumpedHopper3);
-        hopperPlace4=(CheckBox)findViewById(R.id.ckBxDumpedHopper4);
 
         noGear=(CheckBox)findViewById(R.id.ckBxNoGear);
         gearFail=(CheckBox)findViewById(R.id.ckBxGearFail);
