@@ -10,4 +10,78 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.pideriver.a2017tatorscoutfirststeamworks.Comments">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comments"
+        android:layout_marginLeft="400dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000000"/>
+    <AutoCompleteTextView
+        android:layout_width="900dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:hint="Edit me!"
+        android:id="@+id/acTvComments"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnToNextMatch"
+        android:text="To Next Match"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="660dp"/>
+    <!--checkboxes = dead,intermittent, tipped over, stuck on ball, defended + slider, scaled,-->
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dead"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="0dp"
+        android:id="@+id/ckBxDead" />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intermittent"
+        android:layout_marginTop=""
+        android:layout_marginLeft=""
+        android:layout_alignTop="@+id/ckBxDead"
+        android:layout_alignLeft="@+id/ckBxDead"
+        android:id="@+id/ckBxIntermittent" />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipped Over"
+        android:layout_marginTop=""
+        android:layout_marginLeft=""
+        android:layout_alignTop="@+id/ckBxIntermittent"
+        android:layout_alignLeft="@+id/ckBxIntermittent"
+        android:id="@+id/ckBxTippedOver" />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stuck On Ball"
+        android:layout_marginTop=""
+        android:layout_marginLeft=""
+        android:layout_alignTop="@+id/ckBxTippedOver"
+        android:layout_alignLeft="@+id/ckBxTippedOver"
+        android:id="@+id/ckBxStuckOnBall" />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Defended"
+        android:layout_marginTop=""
+        android:layout_marginLeft=""
+        android:layout_alignTop="@+id/ckBxStuckOnBall"
+        android:layout_alignLeft="@+id/ckBxStuckOnBall"
+        android:id="@+id/ckBxDefended" />
+
+    <SeekBar
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="0dp"
+        android:layout_alignTop="@+id/ckBxDefended"
+        android:layout_alignLeft="@+id/ckBxDefended"
+        android:id="@+id/ckBxDefendedSlider"/>
 </RelativeLayout>
