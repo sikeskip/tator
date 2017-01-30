@@ -102,6 +102,9 @@ public class MatchSetup extends AppCompatActivity {
         btnToAuto.setOnClickListener(listener);
 
         setupRadioButtons(context);
+
+        //Setting OnClickListeners
+        btnToAuto.setOnClickListener(listener);
     }
 
     private void setupRadioButtons(Context context) {
