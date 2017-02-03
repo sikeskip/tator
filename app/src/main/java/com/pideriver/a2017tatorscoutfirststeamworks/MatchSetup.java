@@ -80,6 +80,7 @@ public class MatchSetup extends AppCompatActivity {
         btnToAuto = (Button) findViewById(R.id.btnToAuto);
         spnTeamSpinner = (Spinner) findViewById(R.id.spnTeamSpinner);
 
+        imgFieldSetup = (ImageView) findViewById(R.id.imgFieldSetup);
         //Setting Up Spinner
         spinnerAry = new String[7];
         //DummyData
@@ -100,11 +101,10 @@ public class MatchSetup extends AppCompatActivity {
 
         //Setting OnClickListeners
         btnToAuto.setOnClickListener(listener);
+        radRed.setOnClickListener(listener);
+        radBlue.setOnClickListener(listener);
 
         setupRadioButtons(context);
-
-        //Setting OnClickListeners
-        btnToAuto.setOnClickListener(listener);
     }
 
     private void setupRadioButtons(Context context) {
@@ -182,7 +182,7 @@ public class MatchSetup extends AppCompatActivity {
             System.out.println("hello newArraylist");
             teams.add("Pick A Team");
             System.out.println("hello Pickateam");
-            while (scanner.hasNext()) {
+            while (scanner.hasNext()){
                 String team = scanner.next().trim();
                 System.out.println("hello Scanner.next");
                 teams.add(team);
@@ -193,7 +193,8 @@ public class MatchSetup extends AppCompatActivity {
 
             spinnerAry = teams.toArray(new String[teams.size()]);
             System.out.println("hello ToArray");
-        } catch (FileNotFoundException e) {
+        }
+        catch (FileNotFoundException e){
             Toast t = Toast.makeText(context,
                     "File not found!", Toast.LENGTH_LONG);
             t.show();
@@ -209,7 +210,7 @@ public class MatchSetup extends AppCompatActivity {
         //Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
         System.out.println("Hello ReachedVSP");
-        if (permission != PackageManager.PERMISSION_GRANTED) {
+        if (permission != PackageManager.PERMISSION_GRANTED){
             System.out.println("Hello No Permission");
             //We don't have permission so prompt the user
             ActivityCompat.requestPermissions(
@@ -218,6 +219,5 @@ public class MatchSetup extends AppCompatActivity {
                     REQUEST_EXTERNAL_STORAGE
             );
         }
-
     }
 }
