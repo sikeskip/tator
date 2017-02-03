@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:counter="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,5 +10,214 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.pideriver.a2017tatorscoutfirststeamworks.Auto">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="360dp"
+        android:id="@+id/imgField"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/edit_red_side"
+        />
+
+    <Button
+        android:text="To Teleop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnToTeleop"
+        android:layout_alignRight="@+id/imgField"
+        android:layout_alignTop="@+id/imgField"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="350dp"/>
+
+    <TextView
+        android:text="Accuracy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="150dp"
+        android:id="@+id/tvAccuracy"
+        android:textColor="#000000"
+        android:layout_alignTop="@+id/ctHighGoalCycles"
+        android:layout_alignLeft="@+id/ctHighGoalCycles"/>
+
+    <TextView
+        android:text="0% acc."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="-80dp"
+        android:layout_marginTop="0dp"
+        android:id="@+id/tvAccuracyPoint0"
+        android:textColor="#000000"
+        android:layout_alignTop="@+id/tvAccuracy"
+        android:layout_alignLeft="@+id/tvAccuracy"/>
+
+    <TextView
+        android:text="100% acc."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="0dp"
+        android:id="@+id/tvAccuracyPoint100"
+        android:textColor="#000000"
+        android:layout_alignTop="@+id/tvAccuracy"
+        android:layout_alignLeft="@+id/tvAccuracy"/>
+
+    <SeekBar
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvAccuracy"
+        android:layout_alignLeft="@+id/tvAccuracy"
+        android:layout_marginLeft="-70dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/sliderAccuracy" />
+
+    <!--Goal Counters-->
+    <com.pideriver.a2017tatorscoutfirststeamworks.Counter
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        counter:text="Low Goal Cycles"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignTop="@+id/ckBxCrossedLine"
+        android:layout_alignLeft="@+id/ckBxCrossedLine"
+        android:id="@+id/ctLowGoalCycles"
+        counter:min="0">
+    </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
+
+    <com.pideriver.a2017tatorscoutfirststeamworks.Counter
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        counter:text="High Goal Cycles"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="130dp"
+        android:layout_alignTop="@+id/ctLowGoalCycles"
+        android:layout_alignLeft="@+id/ctLowGoalCycles"
+        android:id="@+id/ctHighGoalCycles"
+        counter:min="0">
+    </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
+
+<!--CheckBoxs for Gear placement-->
+    <CheckBox
+        android:text="Gear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="130dp"
+        android:layout_alignTop="@+id/imgField"
+        android:layout_alignLeft="@+id/imgField"
+        android:textColor="#ffffff"
+        android:id="@+id/ckBxGearPeg1"/>
+
+    <CheckBox
+        android:text="Gear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="100dp"
+        android:layout_alignTop="@+id/imgField"
+        android:layout_alignLeft="@+id/imgField"
+        android:textColor="#ffffff"
+        android:id="@+id/ckBxGearPeg2"/>
+
+    <CheckBox
+        android:text="Gear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="390dp"
+        android:layout_marginTop="130dp"
+        android:layout_alignTop="@+id/imgField"
+        android:layout_alignLeft="@+id/imgField"
+        android:textColor="#ffffff"
+        android:id="@+id/ckBxGearPeg3"/>
+
+    <!--Hoppers-->
+    <CheckBox
+        android:text="Dumped Hopper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="480dp"
+        android:layout_marginTop="0dp"
+        android:layout_alignTop="@+id/imgField"
+        android:layout_alignLeft="@+id/imgField"
+        android:background="#0000ff"
+        android:textColor="#ffffff"
+        android:id="@+id/ckBxDumpedHopperColor"/>
+
+    <CheckBox
+        android:text="      "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="140dp"
+        android:layout_alignTop="@+id/imgField"
+        android:layout_alignLeft="@+id/imgField"
+        android:background="#0000ff"
+        android:textColor="#ffffff"
+        android:id="@+id/ckBxDumpedHopper1"/>
+
+    <CheckBox
+        android:text="      "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="140dp"
+        android:layout_alignTop="@+id/ckBxDumpedHopper1"
+        android:layout_alignLeft="@+id/ckBxDumpedHopper1"
+        android:background="#0000ff"
+        android:textColor="#ffffff"
+        android:id="@+id/ckBxDumpedHopper2"/>
+
+    <CheckBox
+        android:text="      "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="470dp"
+        android:layout_marginTop="170dp"
+        android:layout_alignTop="@+id/imgField"
+        android:layout_alignLeft="@+id/imgField"
+        android:background="#0000ff"
+        android:textColor="#ffffff"
+        android:id="@+id/ckBxDumpedHopper3"/>
+
+    <CheckBox
+        android:text="      "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="140dp"
+        android:layout_alignTop="@+id/ckBxDumpedHopper3"
+        android:layout_alignLeft="@+id/ckBxDumpedHopper3"
+        android:background="#0000ff"
+        android:textColor="#ffffff"
+        android:id="@+id/ckBxDumpedHopper4"/>
+
+    <!--Stuff in Margins-->
+    <CheckBox
+        android:text="No Gear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imgField"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="0dp"
+        android:id="@+id/ckBxNoGear"/>
+
+    <CheckBox
+        android:text="Gear Fail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ckBxNoGear"
+        android:layout_marginTop="30dp"
+        android:layout_alignTop="@+id/ckBxNoGear"
+        android:id="@+id/ckBxGearFail"/>
+
+    <CheckBox
+        android:text="Crossed Line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ckBxGearFail"
+        android:layout_marginTop="30dp"
+        android:layout_alignLeft="@+id/ckBxGearFail"
+        android:id="@+id/ckBxCrossedLine"/>
 
 </RelativeLayout>
