@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ import java.util.Scanner;
 public class MatchSetup extends AppCompatActivity {
     //Declaring Views
     private RadioButton radStartPos1, radStartPos2, radStartPos3, radStartPos4, radRed, radBlue;
+
+    private RadioGroup rgpRedOrBlue;
 
     private Button btnToAuto;
 
@@ -79,7 +82,7 @@ public class MatchSetup extends AppCompatActivity {
         radBlue = (RadioButton) findViewById(R.id.radBlue);
         btnToAuto = (Button) findViewById(R.id.btnToAuto);
         spnTeamSpinner = (Spinner) findViewById(R.id.spnTeamSpinner);
-
+        rgpRedOrBlue = (RadioGroup) findViewById(R.id.rgpRedOrBlue);
         imgFieldSetup = (ImageView) findViewById(R.id.imgFieldSetup);
         //Setting Up Spinner
         spinnerAry = new String[7];
@@ -103,6 +106,7 @@ public class MatchSetup extends AppCompatActivity {
         btnToAuto.setOnClickListener(listener);
         radRed.setOnClickListener(listener);
         radBlue.setOnClickListener(listener);
+        rgpRedOrBlue.setOnCheckedChangeListener(checkListener);
 
         setupRadioButtons(context);
     }
@@ -124,19 +128,15 @@ public class MatchSetup extends AppCompatActivity {
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            System.out.println("Hello ReachedOCL");
             switch (v.getId()) {
+
                 case R.id.btnToAuto:
                     if (checkEverything()) {
                         saveData();
                         itToAuto = new Intent(context, Auto.class);
                         startActivity(itToAuto);
                     }
-                    break;
-                case R.id.radRed:
-                    imgFieldSetup.setImageResource(R.drawable.edit_red_side);
-                    break;
-                case R.id.radBlue:
-                    imgFieldSetup.setImageResource(R.drawable.edit_blue_side);
                     break;
             }
         }
@@ -220,4 +220,20 @@ public class MatchSetup extends AppCompatActivity {
             );
         }
     }
+
+
+    RadioGroup.OnCheckedChangeListener checkListener = new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup radioGroup, int i) {
+            switch (i){
+                case R.id.radRed:
+                    imgFieldSetup.setImageResource(R.drawable.edit_red_side);
+                    break;
+                case R.id.radBlue:
+                    imgFieldSetup.setImageResource(R.drawable.edit_blue_side_flip);
+                    break;
+            }
+
+        }
+    };
 }
