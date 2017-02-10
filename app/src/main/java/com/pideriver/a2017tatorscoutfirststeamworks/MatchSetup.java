@@ -227,10 +227,10 @@ public class MatchSetup extends AppCompatActivity {
         public void onCheckedChanged(RadioGroup radioGroup, int i) {
             switch (i){
                 case R.id.radRed:
-                    imgFieldSetup.setImageResource(R.drawable.edit_red_side);
+                    imgFieldSetup.setImageResource(R.drawable.edit_red_side_flip);
                     break;
                 case R.id.radBlue:
-                    imgFieldSetup.setImageResource(R.drawable.edit_blue_side_flip);
+                    imgFieldSetup.setImageResource(R.drawable.BlueFlipped);
                     break;
             }
 
