@@ -3,6 +3,7 @@ package com.pideriver.a2017tatorscoutfirststeamworks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,10 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileWriter;
 
 public class Comments extends AppCompatActivity {
 
@@ -68,8 +73,95 @@ public class Comments extends AppCompatActivity {
                     editor.putBoolean("intermittent",intermittent.isChecked());
 
                     editor.commit();
-                    //for file writer: team number, scout name,...
-
+                    //for file writer:name =Group_Match #-#.csv;file order = team number, match number, MATCH SETUP, AUTO, TELEOP, COMMENTS;
+                    File file = new File(Environment.getExternalStorageDirectory()+"/"+preferences.getString("filename","BROKEN"));
+                    try{
+                        FileWriter writer = new FileWriter(file);
+                        writer.write(preferences.getString("scoutname","SCOUT")+"MATCH SETUP");
+                        writer.write(",");
+                        writer.write(preferences.getString("startPos","STARTING POSITION"));
+                        writer.write(",");
+                        writer.write(preferences.getString("allianceColor","COLOR"));
+                        writer.write(",");
+                        writer.write(preferences.getString("team","TEAM"));
+                        writer.write(",");
+                        writer.write("Auto");
+                        writer.write(",");
+                        writer.write(preferences.getInt("gearPlacement",0));
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("hopper1",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("hopper2",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("hopper3",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("hopper4",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("noGear",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("gearFail",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("crossedLine",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("lowGearCycles",0)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("highGearCycles",0)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("accuracy",0)+"");
+                        writer.write(",");
+                        writer.write("TELEOP");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("DumpedHopper1",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("DumpedHopper2",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("DumpedHopper3",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("DumpedHopper4",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("DumpedHopper5",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("TooQuickToCount",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("LowGoalDumps",0)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("HighGoalCount",0)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("GearFails",0)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("GearsPlaced1",0)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("GearsPlaced2",0)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("GearsPlaced3",0)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("accuracyTeleop",0)+"");
+                        writer.write(",");
+                        writer.write("COMMENTS");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("defended",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getInt("defense power",0)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("scaled",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("scale fail",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("stuck on ball",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("tipped over",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("dead",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getBoolean("intermittent",false)+"");
+                        writer.write(",");
+                        writer.write(preferences.getString("comments","COMMENTS"));
+                        writer.write(System.lineSeparator());
+                        writer.close();
+                    }
+                    catch(Exception e){
+                        Toast.makeText(context, "File Writer Failed", Toast.LENGTH_SHORT).show();
+                    }
 
                     Intent intent  = new Intent(context,MatchSetup.class);
                     startActivity(intent);
