@@ -79,6 +79,10 @@ public class ScoutSignIn extends AppCompatActivity {
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putString("scoutName", scoutName.getText().toString());
                         editor.putString("group",groupSpinner.getSelectedItem().toString());
+                        editor.putInt("match",1);
+                        editor.putInt("match start",1);
+                        editor.putInt("match end",1);
+                        editor.putBoolean("nuke old file",false);
                         editor.commit();
                         Intent intent  = new Intent(context,MatchSetup.class);
                         startActivity(intent);
