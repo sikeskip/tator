@@ -10,6 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.pideriver.a2017tatorscoutfirststeamworks.MatchSetup">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  Sent Data to Stewart  "
+        android:layout_alignLeft="@+id/imgFieldSetup"
+        android:layout_alignBottom="@+id/imgFieldSetup"
+        android:layout_marginBottom="-100dp"
+        android:background="#FF0000"
+        android:textColor="#FFFFFF"
+        android:id="@+id/btnDataSent"/>
+
     <ImageView
         android:id="@+id/imgFieldSetup"
         android:layout_width="450dp"

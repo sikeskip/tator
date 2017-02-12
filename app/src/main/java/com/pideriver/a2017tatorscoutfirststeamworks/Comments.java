@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -62,22 +63,52 @@ public class Comments extends AppCompatActivity {
 
                     SharedPreferences.Editor editor = preferences.edit();
 
-                    editor.putString("comments",comments.getText().toString());
-                    editor.putBoolean("defended",defended.isChecked());
-                    editor.putInt("defense power",defendBar.getProgress());
-                    editor.putBoolean("scaled",scaled.isChecked());
-                    editor.putBoolean("scale fail",scaledFailed.isChecked());
-                    editor.putBoolean("stuck on ball",stuckOnBall.isChecked());
-                    editor.putBoolean("tipped over",tippedOver.isChecked());
-                    editor.putBoolean("dead",dead.isChecked());
-                    editor.putBoolean("intermittent",intermittent.isChecked());
-
+                    editor.putString("comments", comments.getText().toString());
+                    editor.putBoolean("defended", defended.isChecked());
+                    editor.putInt("defense power", defendBar.getProgress());
+                    editor.putBoolean("scaled", scaled.isChecked());
+                    editor.putBoolean("scale fail", scaledFailed.isChecked());
+                    editor.putBoolean("stuck on ball", stuckOnBall.isChecked());
+                    editor.putBoolean("tipped over", tippedOver.isChecked());
+                    editor.putBoolean("dead", dead.isChecked());
+                    editor.putBoolean("intermittent", intermittent.isChecked());
+                    editor.putInt("match", preferences.getInt("match", 0) + 1);
                     editor.commit();
-                    //for file writer:name =Group_Match #-#.csv;file order = team number, match number, MATCH SETUP, AUTO, TELEOP, COMMENTS;
-                    File file = new File(Environment.getExternalStorageDirectory()+"/"+preferences.getString("filename","BROKEN"));
+                    SharedPreferences.Editor editorThree = preferences.edit();
+                    String oldFileName = "";
+
+                    if(preferences.getInt("match end",1) <=1) {
+                        oldFileName = preferences.getString("filename", "ERROR");
+                    }
+                    editorThree.putString("filename", preferences.getString("group", "GROUP") + " Matches " + preferences.getInt("match start", 0) + " - " + preferences.getInt("match end", 0) + ".csv");
+                    editorThree.commit();
+
+
+                    File file = new File(Environment.getExternalStorageDirectory() + "/" + preferences.getString("filename", "BROKEN"));
+                    if(preferences.getInt("match end",0) <=1) {
+                        try {
+                            File oldfile = new File(Environment.getExternalStorageDirectory() + "/" + oldFileName);
+                            oldfile.renameTo(file);
+                            file = new File(Environment.getExternalStorageDirectory() + "/" + preferences.getString("filename", "BROKEN"));
+                        } catch (Exception e) {
+                            Log.d("CREATION", "no old file");
+                        }
+                    }
                     try{
-                        FileWriter writer = new FileWriter(file);
-                        writer.write(preferences.getString("scoutname","SCOUT")+"MATCH SETUP");
+                        FileWriter writer;
+                        if(preferences.getInt("match end",1) <=1) {
+                            writer = new FileWriter(file);
+                        }
+                        else{
+                            writer = new FileWriter(file,true);
+                        }
+                        writer.write(preferences.getString("team","TEAM")+"MATCH SETUP");
+                        writer.write(",");
+                        writer.write(preferences.getString("match","MATCH")+"MATCH SETUP");
+                        writer.write(",");
+                        writer.write(preferences.getString("scoutName","SCOUT")+"MATCH SETUP");
+                        writer.write(",");
+                        writer.write(preferences.getString("group","GROUP")+"MATCH SETUP");
                         writer.write(",");
                         writer.write(preferences.getString("startPos","STARTING POSITION"));
                         writer.write(",");
@@ -156,12 +187,15 @@ public class Comments extends AppCompatActivity {
                         writer.write(preferences.getBoolean("intermittent",false)+"");
                         writer.write(",");
                         writer.write(preferences.getString("comments","COMMENTS"));
-                        writer.write(System.lineSeparator());
+                        writer.write("\n");
                         writer.close();
                     }
                     catch(Exception e){
                         Toast.makeText(context, "File Writer Failed", Toast.LENGTH_SHORT).show();
                     }
+                    SharedPreferences.Editor editorTwo = preferences.edit();
+                    editorTwo.putInt("match end",1);
+                    editorTwo.commit();
 
                     Intent intent  = new Intent(context,MatchSetup.class);
                     startActivity(intent);

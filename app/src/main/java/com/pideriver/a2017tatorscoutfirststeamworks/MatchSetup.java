@@ -2,7 +2,9 @@ package com.pideriver.a2017tatorscoutfirststeamworks;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -31,6 +33,8 @@ public class MatchSetup extends AppCompatActivity {
     private RadioGroup rgpRedOrBlue;
 
     private Button btnToAuto;
+
+    private Button btnDataSent;
 
     private Spinner spnTeamSpinner;
 
@@ -65,6 +69,7 @@ public class MatchSetup extends AppCompatActivity {
         radRed = (RadioButton) findViewById(R.id.radRed);
         radBlue = (RadioButton) findViewById(R.id.radBlue);
         btnToAuto = (Button) findViewById(R.id.btnToAuto);
+        btnDataSent = (Button) findViewById(R.id.btnDataSent);
         spnTeamSpinner = (Spinner) findViewById(R.id.spnTeamSpinner);
         imgFieldSetup = (ImageView) findViewById(R.id.imgFieldSetup);
         //Setting Up Spinner
@@ -104,6 +109,7 @@ public class MatchSetup extends AppCompatActivity {
 
         //Setting OnClickListeners
         btnToAuto.setOnClickListener(listener);
+        btnDataSent.setOnClickListener(listener);
         radRed.setOnClickListener(listener);
         radBlue.setOnClickListener(listener);
         rgpRedOrBlue.setOnCheckedChangeListener(checkListener);
@@ -137,6 +143,27 @@ public class MatchSetup extends AppCompatActivity {
                         itToAuto = new Intent(context, Auto.class);
                         startActivity(itToAuto);
                     }
+                    break;
+                case R.id.btnDataSent:
+                    new AlertDialog.Builder(context)
+                            .setTitle("Data Sent")
+                            .setMessage("Are you sure Stewart has received the data?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    SharedPreferences.Editor editor = preferences.edit();
+                                    editor.putInt("match start",preferences.getInt("match end",0));
+                                    editor.putInt("match end",preferences.getInt("match end",0)+1);
+                                    editor.putBoolean("nuke old file",true);
+                                    editor.commit();
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
                     break;
             }
         }
@@ -230,7 +257,7 @@ public class MatchSetup extends AppCompatActivity {
                     imgFieldSetup.setImageResource(R.drawable.edit_red_side_flip);
                     break;
                 case R.id.radBlue:
-                    imgFieldSetup.setImageResource(R.drawable.BlueFlipped);
+                    imgFieldSetup.setImageResource(R.drawable.blue_flipped);
                     break;
             }
 
