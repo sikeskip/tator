@@ -141,10 +141,7 @@ public class Auto extends AppCompatActivity {
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg1:
-                    if(preferences.getString("allianceColor","").equals("red")){
-                    ary =new CheckBox[]{noGear,gearPlacement2,gearPlacement3};}
-                    else{
-                        ary =new CheckBox[]{noGear,gearPlacement2,gearPlacement1};}
+                    ary =new CheckBox[]{noGear,gearPlacement2,gearPlacement3};
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg2:
@@ -152,11 +149,7 @@ public class Auto extends AppCompatActivity {
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg3:
-                    if(preferences.getString("allianceColor","").equals("red")){
-                    ary =new CheckBox[]{noGear,gearPlacement1,gearPlacement2};}
-                    else{
-                        ary =new CheckBox[]{noGear,gearPlacement3,gearPlacement2};
-                    }
+                    ary =new CheckBox[]{noGear,gearPlacement1,gearPlacement2};
                     UncheckBoxes(ary);
                     break;
             }

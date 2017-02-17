@@ -101,7 +101,7 @@ public class Comments extends AppCompatActivity {
                         writer = new FileWriter(file,true);
                         writer.append(preferences.getString("team","TEAM"));
                         writer.append(",");
-                        writer.append(preferences.getString("match","MATCH"));
+                        writer.append(preferences.getInt("match",0)+"");
                         writer.append(",");
                         writer.append(preferences.getString("scoutName","SCOUT"));
                         writer.append(",");
