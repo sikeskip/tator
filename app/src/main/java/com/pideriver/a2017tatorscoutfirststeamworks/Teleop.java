@@ -28,6 +28,7 @@ public class Teleop extends AppCompatActivity {
 
     Counter lowGoalDumps;
     Counter highGoals;
+    Counter highGoalsCycles;
     Counter gearFails;
     Counter gearsPlaced1;
     Counter gearsPlaced2;
@@ -59,6 +60,7 @@ public class Teleop extends AppCompatActivity {
         gearsPlaced1 = (Counter)findViewById(R.id.ctGearPlace1);
         gearsPlaced2 = (Counter)findViewById(R.id.ctGearPlace2);
         gearsPlaced3 = (Counter)findViewById(R.id.ctGearPlace3);
+        highGoalsCycles = (Counter)findViewById(R.id.ctHighGoalCyclesTele);
 
         //seekbar
         accuracy = (SeekBar)findViewById(R.id.sliderAccuracy);
@@ -82,6 +84,7 @@ public class Teleop extends AppCompatActivity {
                     editor.putInt("GearsPlaced2",gearsPlaced2.getCount());
                     editor.putInt("GearsPlaced3",gearsPlaced3.getCount());
                     editor.putInt("accuracyTele",accuracy.getProgress());
+                    editor.putInt("high goal cycles tele",highGoalsCycles.getCount());
                     Intent intent  = new Intent(context,Comments.class);
                     startActivity(intent);
                     break;

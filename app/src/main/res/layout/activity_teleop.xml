@@ -160,6 +160,19 @@
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
 
+    <com.pideriver.a2017tatorscoutfirststeamworks.Counter
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        counter:text="High Goal Cycles"
+        counter:textColor="#FFFFFF"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="0dp"
+        android:layout_alignTop="@+id/ctGearPlace2"
+        android:layout_alignLeft="@+id/ctGearPlace2"
+        android:id="@+id/ctHighGoalCyclesTele"
+        counter:min="0">
+    </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
+
     <!--Hoppers-->
     <CheckBox
         android:text="Dumped Hopper"

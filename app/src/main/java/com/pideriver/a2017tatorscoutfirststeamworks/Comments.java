@@ -35,6 +35,7 @@ public class Comments extends AppCompatActivity {
     CheckBox tippedOver;
     CheckBox dead;
     CheckBox intermittent;
+    CheckBox goodPick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class Comments extends AppCompatActivity {
         tippedOver=(CheckBox) findViewById(R.id.ckBxTippedOver);
         dead=(CheckBox) findViewById(R.id.ckBxDead);
         intermittent=(CheckBox) findViewById(R.id.ckBxIntermittent);
+        goodPick=(CheckBox) findViewById(R.id.ckBxSecondPick);
     }
 
     private View.OnClickListener listen = new View.OnClickListener(){
@@ -66,6 +68,7 @@ public class Comments extends AppCompatActivity {
 
                     editor.putString("comments", comments.getText().toString());
                     editor.putBoolean("defended", defended.isChecked());
+                    editor.putBoolean("good pick", defended.isChecked());
                     editor.putInt("defense power", defendBar.getProgress());
                     editor.putBoolean("scaled", scaled.isChecked());
                     editor.putBoolean("scale fail", scaledFailed.isChecked());
@@ -86,7 +89,7 @@ public class Comments extends AppCompatActivity {
 
 
                     File file = new File(Environment.getExternalStorageDirectory() + "/" + preferences.getString("filename", "BROKEN"));
-                    if(preferences.getInt("match end",0) <=1) {
+                    if(preferences.getInt("match end",0) <=1 || !preferences.getBoolean("nuke old file",false)) {
                         try {
                             File oldfile = new File(Environment.getExternalStorageDirectory() + "/" + oldFileName);
                             oldfile.renameTo(file);
@@ -155,6 +158,8 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getInt("HighGoalCount",0)+"");
                         writer.append(",");
+                        writer.append(preferences.getInt("high goal cycles tele",0)+"");
+                        writer.append(",");
                         writer.append(preferences.getInt("GearFails",0)+"");
                         writer.append(",");
                         writer.append(preferences.getInt("GearsPlaced1",0)+"");
@@ -182,6 +187,8 @@ public class Comments extends AppCompatActivity {
                         writer.append(preferences.getBoolean("dead",false)+"");
                         writer.append(",");
                         writer.append(preferences.getBoolean("intermittent",false)+"");
+                        writer.append(",");
+                        writer.append(preferences.getBoolean("good pick", false)+"");
                         writer.append(",");
                         writer.append(preferences.getString("comments","COMMENTS"));
                         writer.append("\n");
