@@ -76,12 +76,12 @@ public class Comments extends AppCompatActivity {
                     editor.putBoolean("tipped over", tippedOver.isChecked());
                     editor.putBoolean("dead", dead.isChecked());
                     editor.putBoolean("intermittent", intermittent.isChecked());
-                    editor.putInt("match", preferences.getInt("match", 0) + 1);
+
                     editor.commit();
                     SharedPreferences.Editor editorThree = preferences.edit();
                     String oldFileName = "";
 
-                    if(preferences.getInt("match end",1) <=1) {
+                    if(preferences.getInt("match end",1) >1 && !preferences.getBoolean("nuke old file",false)) {
                         oldFileName = preferences.getString("filename", "ERROR");
                     }
                     editorThree.putString("filename", preferences.getString("group", "GROUP") + " Matches " + preferences.getInt("match start", 0) + " - " + preferences.getInt("match end", 0) + ".csv");
@@ -89,7 +89,8 @@ public class Comments extends AppCompatActivity {
 
 
                     File file = new File(Environment.getExternalStorageDirectory() + "/" + preferences.getString("filename", "BROKEN"));
-                    if(preferences.getInt("match end",0) <=1 || !preferences.getBoolean("nuke old file",false)) {
+
+                    if(preferences.getInt("match end",0) >1 && !preferences.getBoolean("nuke old file",false)) {
                         try {
                             File oldfile = new File(Environment.getExternalStorageDirectory() + "/" + oldFileName);
                             oldfile.renameTo(file);
@@ -205,7 +206,9 @@ public class Comments extends AppCompatActivity {
                         Toast.makeText(context, "File Writer Failed", Toast.LENGTH_SHORT).show();
                     }
                     SharedPreferences.Editor editorTwo = preferences.edit();
-                    editorTwo.putInt("match end",1);
+                    editorThree.putBoolean("nuke old file",false);
+                    editorTwo.putInt("match end",preferences.getInt("match end",1)+1);
+                    editorTwo.putInt("match", preferences.getInt("match", 0) + 1);
                     editorTwo.commit();
 
                     Intent intent  = new Intent(context,MatchSetup.class);

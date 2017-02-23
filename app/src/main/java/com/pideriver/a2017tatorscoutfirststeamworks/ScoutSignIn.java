@@ -39,6 +39,10 @@ public class ScoutSignIn extends AppCompatActivity {
         setContentView(R.layout.scout_sign_in);
 
         preferences = this.getSharedPreferences("preferences",Context.MODE_PRIVATE);
+        //kills all shared preferences
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.commit();
 
         //seting up widgets
         toSetup = (Button)findViewById(R.id.btnToSetup);
