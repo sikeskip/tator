@@ -76,11 +76,11 @@
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        counter:text="Low Goal Cycles"
+        counter:text="Low Goal Shots"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="30dp"
-        android:layout_alignTop="@+id/ckBxCrossedLine"
-        android:layout_alignLeft="@+id/ckBxCrossedLine"
+        android:layout_alignTop="@+id/ckBxTooMany"
+        android:layout_alignLeft="@+id/ckBxTooMany"
         android:id="@+id/ctLowGoalCycles"
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
@@ -88,7 +88,7 @@
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        counter:text="High Goal Cycles"
+        counter:text="High Goal Shots"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="130dp"
         android:layout_alignTop="@+id/ctLowGoalCycles"
@@ -137,6 +137,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="480dp"
+        android:checked="true"
         android:layout_marginTop="0dp"
         android:layout_alignTop="@+id/imgField"
         android:layout_alignLeft="@+id/imgField"
@@ -215,9 +216,17 @@
         android:text="Crossed Line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/ckBxGearFail"
+        android:layout_alignTop="@+id/ckBxDumpedHopperColor"
         android:layout_marginTop="30dp"
-        android:layout_alignLeft="@+id/ckBxGearFail"
+        android:layout_alignLeft="@+id/ckBxDumpedHopperColor"
         android:id="@+id/ckBxCrossedLine"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Too Many To Count"
+        android:layout_below="@+id/ckBxGearFail"
+        android:layout_alignLeft="@+id/imgField"
+        android:id="@+id/ckBxTooMany"/>
 
 </RelativeLayout>

@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -50,6 +51,8 @@ public class MatchSetup extends AppCompatActivity {
 
     private LocationManager start, redOrBlue;
 
+    private EditText matchNum;
+
 
 
     @Override
@@ -72,12 +75,14 @@ public class MatchSetup extends AppCompatActivity {
         btnDataSent = (Button) findViewById(R.id.btnDataSent);
         spnTeamSpinner = (Spinner) findViewById(R.id.spnTeamSpinner);
         imgFieldSetup = (ImageView) findViewById(R.id.imgFieldSetup);
+        matchNum = (EditText)findViewById(R.id.matchNum);
         //Setting Up Spinner
         spinnerAry = new String[7];
         //DummyData
 
         preferences = this.getSharedPreferences("preferences", MODE_PRIVATE);
         context = this;
+        matchNum.setText(preferences.getInt("match", 1)+"");
         //Initializing Views
         radStartPos1 = (RadioButton) findViewById(R.id.radStartPos1);
         radStartPos2 = (RadioButton) findViewById(R.id.radStartPos2);
@@ -89,6 +94,7 @@ public class MatchSetup extends AppCompatActivity {
         spnTeamSpinner = (Spinner) findViewById(R.id.spnTeamSpinner);
         rgpRedOrBlue = (RadioGroup) findViewById(R.id.rgpRedOrBlue);
         imgFieldSetup = (ImageView) findViewById(R.id.imgFieldSetup);
+
         //Setting Up Spinner
         spinnerAry = new String[7];
         //DummyData
@@ -192,7 +198,8 @@ public class MatchSetup extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("startPos", start.getCheckedButtonName());
         editor.putString("allianceColor", redOrBlue.getCheckedButtonName());
-        editor.putString("team", spnTeamSpinner.getSelectedItem().toString());
+        editor.putInt("match", Integer.parseInt(matchNum.getText().toString()));
+        editor.putString("team", spnTeamSpinner.getSelectedItem().toString().replaceAll(",.*", ""));
         editor.commit();
     }
 

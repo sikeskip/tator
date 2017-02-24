@@ -13,10 +13,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="  Sent Data to Stewart  "
-        android:layout_alignLeft="@+id/imgFieldSetup"
-        android:layout_alignBottom="@+id/imgFieldSetup"
-        android:layout_marginBottom="-100dp"
+        android:text="Sent Data to Stuart"
+        android:layout_alignParentBottom="true"
         android:background="#FF0000"
         android:textColor="#FFFFFF"
         android:id="@+id/btnDataSent"/>
@@ -127,4 +125,14 @@
             android:id="@+id/radBlue"
             android:background="#0000ff"/>
     </RadioGroup>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Match Number"
+        android:layout_below="@+id/radStartPosExample"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/matchNum" />
 </RelativeLayout>

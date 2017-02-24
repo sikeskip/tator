@@ -66,7 +66,7 @@ public class Comments extends AppCompatActivity {
 
                     SharedPreferences.Editor editor = preferences.edit();
 
-                    editor.putString("comments", comments.getText().toString());
+                    editor.putString("comments", comments.getText().toString().replaceAll(",", ""));
                     editor.putBoolean("defended", defended.isChecked());
                     editor.putBoolean("good pick", defended.isChecked());
                     editor.putInt("defense power", defendBar.getProgress());
@@ -115,11 +115,12 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getString("allianceColor","COLOR"));
                         writer.append(",");
-                        writer.append(preferences.getString("team","TEAM"));
-                        writer.append(",");
-                        writer.append("Auto");
+                        //writer.append(preferences.getString("team","TEAM"));
+                        //writer.append(",");
                         writer.append(",");
                         writer.append(preferences.getInt("gearPlacement",0)+"");
+                        writer.append(",");
+                        writer.append(preferences.getBoolean("tooFastAuto", false)+"");
                         writer.append(",");
                         writer.append(preferences.getBoolean("hopper1",false)+"");
                         writer.append(",");
@@ -140,8 +141,6 @@ public class Comments extends AppCompatActivity {
                         writer.append(preferences.getInt("highGearCycles",0)+"");
                         writer.append(",");
                         writer.append(preferences.getInt("accuracy",0)+"");
-                        writer.append(",");
-                        writer.append("TELEOP");
                         writer.append(",");
                         writer.append(preferences.getBoolean("DumpedHopper1",false)+"");
                         writer.append(",");
@@ -171,7 +170,7 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getInt("accuracyTeleop",0)+"");
                         writer.append(",");
-                        writer.append("COMMENTS");
+                        //writer.append("COMMENTS");
                         writer.append(",");
                         writer.append(preferences.getBoolean("defended",false)+"");
                         writer.append(",");

@@ -19,10 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Auto" />
-        <activity android:name=".MatchSetup" />
-        <activity android:name=".Teleop" />
-        <activity android:name=".Comments"></activity>
+        <activity android:name=".Auto"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".MatchSetup"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Teleop"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".Comments"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

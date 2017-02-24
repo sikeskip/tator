@@ -3,17 +3,13 @@ package com.pideriver.a2017tatorscoutfirststeamworks;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.SeekBar;
-
-import java.util.prefs.Preferences;
 
 public class Auto extends AppCompatActivity {
 
@@ -33,6 +29,7 @@ public class Auto extends AppCompatActivity {
     CheckBox hopperPlace2;
     CheckBox hopperPlace3;
     CheckBox hopperPlace4;
+    CheckBox tooFast;
 
     CheckBox noGear;
     CheckBox gearFail;
@@ -81,6 +78,7 @@ public class Auto extends AppCompatActivity {
         crossedLine=(CheckBox)findViewById(R.id.ckBxCrossedLine);
         lowGoalCycles=(Counter)findViewById(R.id.ctLowGoalCycles);
         highGoalCycles=(Counter)findViewById(R.id.ctHighGoalCycles);
+        tooFast=(CheckBox)findViewById(R.id.ckBxTooMany);
 
         accuracy = (SeekBar) findViewById(R.id.sliderAccuracy);
 
@@ -117,6 +115,7 @@ public class Auto extends AppCompatActivity {
                     editor.putBoolean("hopper2",hopperPlace2.isChecked());
                     editor.putBoolean("hopper3",hopperPlace3.isChecked());
                     editor.putBoolean("hopper4",hopperPlace4.isChecked());
+                    editor.putBoolean("tooFastAuto", tooFast.isChecked());
                     //no gear, failed to place gear, and crossed line
                     editor.putBoolean("noGear",noGear.isChecked());
                     editor.putBoolean("gearFail",gearFail.isChecked());
@@ -141,15 +140,15 @@ public class Auto extends AppCompatActivity {
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg1:
-                    ary =new CheckBox[]{noGear,gearPlacement2,gearPlacement3};
+                    ary =new CheckBox[]{noGear};
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg2:
-                    ary =new CheckBox[]{noGear,gearPlacement1,gearPlacement3};
+                    ary =new CheckBox[]{noGear};
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg3:
-                    ary =new CheckBox[]{noGear,gearPlacement1,gearPlacement2};
+                    ary =new CheckBox[]{noGear};
                     UncheckBoxes(ary);
                     break;
             }
