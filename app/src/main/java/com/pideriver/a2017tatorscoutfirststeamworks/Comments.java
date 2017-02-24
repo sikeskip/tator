@@ -31,7 +31,7 @@ public class Comments extends AppCompatActivity {
 
     CheckBox scaled;
     CheckBox scaledFailed;
-    CheckBox stuckOnBall;
+    CheckBox blockedByBall;
     CheckBox tippedOver;
     CheckBox dead;
     CheckBox intermittent;
@@ -52,7 +52,7 @@ public class Comments extends AppCompatActivity {
         defendBar=(SeekBar) findViewById(R.id.skBrDefendedSlider);
         scaled=(CheckBox) findViewById(R.id.ckBxScaled);
         scaledFailed=(CheckBox) findViewById(R.id.ckBxScaleFail);
-        stuckOnBall=(CheckBox) findViewById(R.id.ckBxStuckOnBall);
+        blockedByBall=(CheckBox) findViewById(R.id.ckBxBlockedByBall);
         tippedOver=(CheckBox) findViewById(R.id.ckBxTippedOver);
         dead=(CheckBox) findViewById(R.id.ckBxDead);
         intermittent=(CheckBox) findViewById(R.id.ckBxIntermittent);
@@ -72,7 +72,7 @@ public class Comments extends AppCompatActivity {
                     editor.putInt("defense power", defendBar.getProgress());
                     editor.putBoolean("scaled", scaled.isChecked());
                     editor.putBoolean("scale fail", scaledFailed.isChecked());
-                    editor.putBoolean("stuck on ball", stuckOnBall.isChecked());
+                    editor.putBoolean("blocked by ball", blockedByBall.isChecked());
                     editor.putBoolean("tipped over", tippedOver.isChecked());
                     editor.putBoolean("dead", dead.isChecked());
                     editor.putBoolean("intermittent", intermittent.isChecked());
@@ -115,9 +115,6 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getString("allianceColor","COLOR"));
                         writer.append(",");
-                        //writer.append(preferences.getString("team","TEAM"));
-                        //writer.append(",");
-                        writer.append(",");
                         writer.append(preferences.getInt("gearPlacement",0)+"");
                         writer.append(",");
                         writer.append(preferences.getBoolean("tooFastAuto", false)+"");
@@ -136,9 +133,9 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getBoolean("crossedLine",false)+"");
                         writer.append(",");
-                        writer.append(preferences.getInt("lowGearCycles",0)+"");
+                        writer.append(preferences.getInt("lowGoalCycles",0)+"");
                         writer.append(",");
-                        writer.append(preferences.getInt("highGearCycles",0)+"");
+                        writer.append(preferences.getInt("highGoalCycles",0)+"");
                         writer.append(",");
                         writer.append(preferences.getInt("accuracy",0)+"");
                         writer.append(",");
@@ -170,8 +167,6 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getInt("accuracyTeleop",0)+"");
                         writer.append(",");
-                        //writer.append("COMMENTS");
-                        writer.append(",");
                         writer.append(preferences.getBoolean("defended",false)+"");
                         writer.append(",");
                         writer.append(preferences.getInt("defense power",0)+"");
@@ -180,7 +175,7 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getBoolean("scale fail",false)+"");
                         writer.append(",");
-                        writer.append(preferences.getBoolean("stuck on ball",false)+"");
+                        writer.append(preferences.getBoolean("blocked by ball",false)+"");
                         writer.append(",");
                         writer.append(preferences.getBoolean("tipped over",false)+"");
                         writer.append(",");

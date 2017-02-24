@@ -121,8 +121,8 @@ public class Auto extends AppCompatActivity {
                     editor.putBoolean("gearFail",gearFail.isChecked());
                     editor.putBoolean("crossedLine",crossedLine.isChecked());
                     //cycles for goals
-                    editor.putInt("lowGearCycles",lowGoalCycles.getCount());
-                    editor.putInt("highGearCycles",highGoalCycles.getCount());
+                    editor.putInt("lowGoalCycles",lowGoalCycles.getCount());
+                    editor.putInt("highGoalCycles",highGoalCycles.getCount());
                     //accuracy slider
                     editor.putInt("accuracy",accuracy.getProgress());
 

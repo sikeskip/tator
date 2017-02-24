@@ -60,20 +60,20 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stuck On Ball"
+        android:text="Blocked By Ball"
         android:layout_marginTop="0dp"
         android:layout_marginLeft="200dp"
         android:layout_alignTop="@+id/ckBxDead"
         android:layout_alignLeft="@+id/ckBxDead"
-        android:id="@+id/ckBxStuckOnBall" />
+        android:id="@+id/ckBxBlockedByBall" />
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Scaled"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="0dp"
-        android:layout_alignTop="@+id/ckBxStuckOnBall"
-        android:layout_alignLeft="@+id/ckBxStuckOnBall"
+        android:layout_alignTop="@+id/ckBxBlockedByBall"
+        android:layout_alignLeft="@+id/ckBxBlockedByBall"
         android:id="@+id/ckBxScaled" />
     <CheckBox
         android:layout_width="wrap_content"
@@ -87,11 +87,11 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Defended"
+        android:text="Played Defensively"
         android:layout_marginTop="0dp"
         android:layout_marginLeft="230dp"
-        android:layout_alignTop="@+id/ckBxStuckOnBall"
-        android:layout_alignLeft="@+id/ckBxStuckOnBall"
+        android:layout_alignTop="@+id/ckBxBlockedByBall"
+        android:layout_alignLeft="@+id/ckBxBlockedByBall"
         android:id="@+id/ckBxDefended" />
 
     <TextView

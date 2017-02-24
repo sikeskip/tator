@@ -34,8 +34,8 @@
         android:text="Accuracy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginLeft="-30dp"
+        android:layout_marginTop="350dp"
         android:id="@+id/tvAccuracy"
         android:textColor="#000000"
         android:layout_alignTop="@+id/imgField"
@@ -75,7 +75,7 @@
     <!--Counters + ckbx for too quick-->
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
         android:layout_width="wrap_content"
-        android:layout_height="120dp"
+        android:layout_height="70dp"
         counter:text="Low Goal Dumps"
         android:layout_marginLeft="-130dp"
         android:layout_marginTop="10dp"
@@ -90,7 +90,7 @@
         android:layout_height="120dp"
         counter:text="High Goal Shots"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="80dp"
         android:layout_alignTop="@+id/ctLowGoal"
         android:layout_alignLeft="@+id/ctLowGoal"
         android:id="@+id/ctHighGoal"
@@ -151,25 +151,25 @@
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        counter:text="Gear Fail/Drop"
+        counter:text="High Goal Cycles"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="40dp"
         android:layout_alignTop="@+id/ckBxTooQuickToCount"
         android:layout_alignLeft="@+id/ckBxTooQuickToCount"
-        android:id="@+id/ctGearFail"
+        android:id="@+id/ctHighGoalCyclesTele"
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
 
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        counter:text="High Goal Cycles"
-        counter:textColor="#FFFFFF"
+        counter:text="Gear Fail/Drop"
+        counter:textColor="#ffffff"
         android:layout_marginLeft="220dp"
         android:layout_marginTop="0dp"
         android:layout_alignTop="@+id/ctGearPlace2"
         android:layout_alignLeft="@+id/ctGearPlace2"
-        android:id="@+id/ctHighGoalCyclesTele"
+        android:id="@+id/ctGearFail"
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
 

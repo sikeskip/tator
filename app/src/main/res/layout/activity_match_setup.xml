@@ -93,17 +93,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtRedOrBlue"
-        android:layout_below="@+id/spnTeamSpinner"
-        android:layout_alignParentRight="true"
+        android:layout_alignLeft="@+id/spnTeamSpinner"
+        android:layout_marginLeft="-110dp"
         android:textSize="20sp"
         android:text="Red or Blue?"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_below="@+id/txtRedOrBlue"
+        android:layout_alignLeft="@+id/txtRedOrBlue"
+        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:background="#ff0000"
+        android:text="        "/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_below="@+id/txtRedOrBlue"
+        android:layout_alignLeft="@+id/txtRedOrBlue"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="32dp"
+        android:textSize="20sp"
+        android:background="#0000ff"
+        android:text="        "/>
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtRedOrBlue"
-        android:id="@+id/rgpRedOrBlue"
-        android:layout_alignParentRight="true">
+        android:layout_alignLeft="@+id/txtRedOrBlue"
+        android:id="@+id/rgpRedOrBlue">
 
 
         <RadioButton
@@ -113,7 +133,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="40dp"
             android:id="@+id/radRed"
-            android:background="#ff0000"
+            android:background="#ffffff"
             />
 
         <RadioButton
@@ -123,15 +143,24 @@
             android:layout_marginRight="40dp"
             android:layout_alignParentRight="true"
             android:id="@+id/radBlue"
-            android:background="#0000ff"/>
+            android:background="#ffffff"/>
     </RadioGroup>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Match Number"
+        android:textColor="#000000"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/radStartPosExample"
+        android:id="@+id/matchNumText"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:hint="Match Number"
-        android:layout_below="@+id/radStartPosExample"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/matchNumText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/matchNum" />
