@@ -199,6 +199,7 @@ public class MatchSetup extends AppCompatActivity {
         editor.putString("startPos", start.getCheckedButtonName());
         editor.putString("allianceColor", redOrBlue.getCheckedButtonName());
         editor.putInt("match", Integer.parseInt(matchNum.getText().toString()));
+        editor.putInt("match end", Integer.parseInt(matchNum.getText().toString()));
         editor.putString("team", spnTeamSpinner.getSelectedItem().toString().replaceAll(",.*", ""));
         editor.commit();
     }
