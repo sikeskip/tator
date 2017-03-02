@@ -20,6 +20,27 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <TextView
+        android:text="Match Start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_alignLeft="@+id/txtScoutName"
+        android:layout_alignTop="@+id/txtScoutName"
+        android:textColor="#000000"
+        android:id="@+id/matchStartText"/>
+
+    <AutoCompleteTextView
+        android:hint="Match Start"
+        android:text="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtMatchStart"
+        android:layout_marginTop="20dp"
+        android:inputType="number"
+        android:layout_alignLeft="@+id/matchStartText"
+        android:layout_alignTop="@+id/matchStartText"/>
+
     <Spinner
         android:layout_width="350dp"
         android:layout_height="wrap_content"

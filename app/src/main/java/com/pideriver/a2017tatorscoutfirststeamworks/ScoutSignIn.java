@@ -24,6 +24,8 @@ public class ScoutSignIn extends AppCompatActivity {
 
     AutoCompleteTextView scoutName;
 
+    AutoCompleteTextView matchStart;
+
     Spinner groupSpinner;
 
     Toast toast;
@@ -47,6 +49,7 @@ public class ScoutSignIn extends AppCompatActivity {
         //seting up widgets
         toSetup = (Button)findViewById(R.id.btnToSetup);
         scoutName = (AutoCompleteTextView)findViewById(R.id.txtScoutName);
+        matchStart = (AutoCompleteTextView)findViewById(R.id.txtMatchStart);
         groupSpinner = (Spinner)findViewById(R.id.spnGroupSpinner);
 
         //setting up spinner
@@ -84,7 +87,7 @@ public class ScoutSignIn extends AppCompatActivity {
                         editor.putString("scoutName", scoutName.getText().toString());
                         editor.putString("group",groupSpinner.getSelectedItem().toString());
                         editor.putInt("match",1);
-                        editor.putInt("match start",1);
+                        editor.putInt("match start",Integer.parseInt(matchStart.getText().toString()));
                         editor.putInt("match end",1);
                         editor.putBoolean("nuke old file",false);
                         editor.commit();
@@ -100,6 +103,23 @@ public class ScoutSignIn extends AppCompatActivity {
         boolean fail = false;
         if(scoutName.getText().toString().length() ==0){
             toast = Toast.makeText(context, "Please enter your name to continue!", Toast.LENGTH_SHORT);
+            toast.show();
+            fail = true;
+        }
+        try {
+            if(Integer.parseInt(matchStart.getText().toString())<1){
+                toast = Toast.makeText(context, "The match number can't be less than 1!", Toast.LENGTH_SHORT);
+                toast.show();
+                fail = true;
+            }
+        }
+        catch (Exception e){
+            toast = Toast.makeText(context, "Please enter a valid match number!", Toast.LENGTH_SHORT);
+            toast.show();
+            fail = true;
+        }
+        if(matchStart.getText().toString() == ""){
+            toast = Toast.makeText(context, "Please enter a valid match number!", Toast.LENGTH_SHORT);
             toast.show();
             fail = true;
         }
