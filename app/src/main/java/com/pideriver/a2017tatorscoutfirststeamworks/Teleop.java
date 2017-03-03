@@ -33,6 +33,9 @@ public class Teleop extends AppCompatActivity {
     Counter gearsPlaced1;
     Counter gearsPlaced2;
     Counter gearsPlaced3;
+    Counter rzFouls;
+    Counter rzClearedGear;
+    Counter rzDropedGear;
 
     SeekBar accuracy;
     @Override
@@ -61,6 +64,9 @@ public class Teleop extends AppCompatActivity {
         gearsPlaced2 = (Counter)findViewById(R.id.ctGearPlace2);
         gearsPlaced3 = (Counter)findViewById(R.id.ctGearPlace3);
         highGoalsCycles = (Counter)findViewById(R.id.ctHighGoalCyclesTele);
+        rzClearedGear = (Counter)findViewById(R.id.ctRZClearedGear);
+        rzDropedGear = (Counter)findViewById(R.id.ctRZDroppedGear);
+        rzFouls = (Counter)findViewById(R.id.ctRZFouls);
 
         //seekbar
         accuracy = (SeekBar)findViewById(R.id.sliderAccuracy);
@@ -85,6 +91,10 @@ public class Teleop extends AppCompatActivity {
                     editor.putInt("GearsPlaced3",gearsPlaced3.getCount());
                     editor.putInt("accuracyTele",accuracy.getProgress());
                     editor.putInt("high goal cycles tele",highGoalsCycles.getCount());
+                    editor.putInt("rzClearedGear",rzClearedGear.getCount());
+                    editor.putInt("rzDroppedGear",rzDropedGear.getCount());
+                    editor.putInt("rzFouls",rzFouls.getCount());
+                    editor.commit();
                     Intent intent  = new Intent(context,Comments.class);
                     startActivity(intent);
                     break;

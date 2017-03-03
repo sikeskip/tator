@@ -246,4 +246,42 @@
         android:textColor="#ffffff"
         android:id="@+id/ckBxDumpedHopper5"/>
 
+    <!--Retreival Zone-->
+    <!--foul ct, cleared gear RZ ct, Dropped gear RZ ct-->
+    <com.pideriver.a2017tatorscoutfirststeamworks.Counter
+        counter:text="RZ Foul"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="80dp"
+        android:layout_alignTop="@+id/ckBxDumpedHopperColor"
+        android:layout_alignLeft="@+id/ckBxDumpedHopperColor"
+        android:id="@+id/ctRZFouls"
+        counter:textColor="#0000ff"
+        counter:min="0">
+    </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
+    <com.pideriver.a2017tatorscoutfirststeamworks.Counter
+        counter:text="RZ Cleared Gear"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="65dp"
+        android:layout_alignTop="@+id/ctRZFouls"
+        android:layout_alignLeft="@+id/ctRZFouls"
+        android:id="@+id/ctRZClearedGear"
+        counter:textColor="#0000ff"
+        counter:min="0">
+    </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
+    <com.pideriver.a2017tatorscoutfirststeamworks.Counter
+        counter:text="RZ Droped Gear"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="80dp"
+        android:layout_alignTop="@+id/ctRZClearedGear"
+        android:layout_alignLeft="@+id/ctRZClearedGear"
+        android:id="@+id/ctRZDroppedGear"
+        counter:textColor="#0000ff"
+        counter:min="0">
+    </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
 </RelativeLayout>

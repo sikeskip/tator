@@ -36,6 +36,8 @@ public class Comments extends AppCompatActivity {
     CheckBox dead;
     CheckBox intermittent;
     CheckBox goodPick;
+    CheckBox gearStuckInRobot;
+    CheckBox avoidedChokePoint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,8 @@ public class Comments extends AppCompatActivity {
         dead=(CheckBox) findViewById(R.id.ckBxDead);
         intermittent=(CheckBox) findViewById(R.id.ckBxIntermittent);
         goodPick=(CheckBox) findViewById(R.id.ckBxSecondPick);
+        gearStuckInRobot=(CheckBox)findViewById(R.id.ckBxStuckGear);
+        avoidedChokePoint=(CheckBox)findViewById(R.id.ckBxChokePoint);
     }
 
     private View.OnClickListener listen = new View.OnClickListener(){
@@ -66,7 +70,7 @@ public class Comments extends AppCompatActivity {
 
                     SharedPreferences.Editor editor = preferences.edit();
 
-                    editor.putString("comments", comments.getText().toString().replaceAll(",", ""));
+                    editor.putString("comments", comments.getText().toString().replaceAll(",", "").replaceAll("\n"," "));
                     editor.putBoolean("defended", defended.isChecked());
                     editor.putBoolean("good pick", defended.isChecked());
                     editor.putInt("defense power", defendBar.getProgress());
@@ -76,6 +80,8 @@ public class Comments extends AppCompatActivity {
                     editor.putBoolean("tipped over", tippedOver.isChecked());
                     editor.putBoolean("dead", dead.isChecked());
                     editor.putBoolean("intermittent", intermittent.isChecked());
+                    editor.putBoolean("gearStuckInRobot", gearStuckInRobot.isChecked());
+                    editor.putBoolean("avoidedChokePoint", avoidedChokePoint.isChecked());
 
                     editor.commit();
                     SharedPreferences.Editor editorThree = preferences.edit();
@@ -100,7 +106,7 @@ public class Comments extends AppCompatActivity {
                             Log.d("CREATION", "no old file");
                         }
                     }
-                    try{
+                    try{//ALL BOOLEANS TO 0 OR 1<><><><>><><><><><><><><><><><><><><>
                         FileWriter writer;
                         writer = new FileWriter(file,true);
                         writer.append(preferences.getString("team","TEAM"));
@@ -117,21 +123,61 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getInt("gearPlacement",0)+"");
                         writer.append(",");
-                        writer.append(preferences.getBoolean("tooFastAuto", false)+"");
+                        if(preferences.getBoolean("tooFastAuto", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("hopper1",false)+"");
+                        if(preferences.getBoolean("hopper1", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("hopper2",false)+"");
+                        if(preferences.getBoolean("hopper2", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("hopper3",false)+"");
+                        if(preferences.getBoolean("hopper3", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("hopper4",false)+"");
+                        if(preferences.getBoolean("hopper4", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("noGear",false)+"");
+                        if(preferences.getBoolean("noGear", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("gearFail",false)+"");
+                        if(preferences.getBoolean("gearFail", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("crossedLine",false)+"");
+                        if(preferences.getBoolean("crossedLine", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
                         writer.append(preferences.getInt("lowGoalCycles",0)+"");
                         writer.append(",");
@@ -139,17 +185,47 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getInt("accuracy",0)+"");
                         writer.append(",");
-                        writer.append(preferences.getBoolean("DumpedHopper1",false)+"");
+                        if(preferences.getBoolean("DumpedHopper1", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("DumpedHopper2",false)+"");
+                        if(preferences.getBoolean("DumpedHopper2", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("DumpedHopper3",false)+"");
+                        if(preferences.getBoolean("DumpedHopper3", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("DumpedHopper4",false)+"");
+                        if(preferences.getBoolean("DumpedHopper4", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("DumpedHopper5",false)+"");
+                        if(preferences.getBoolean("DumpedHopper5", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("TooQuickToCount",false)+"");
+                        if(preferences.getBoolean("TooQuickToCount", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
                         writer.append(preferences.getInt("LowGoalDumps",0)+"");
                         writer.append(",");
@@ -167,25 +243,85 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getInt("accuracyTeleop",0)+"");
                         writer.append(",");
-                        writer.append(preferences.getBoolean("defended",false)+"");
+                        if(preferences.getBoolean("defended", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
                         writer.append(preferences.getInt("defense power",0)+"");
                         writer.append(",");
-                        writer.append(preferences.getBoolean("scaled",false)+"");
+                        if(preferences.getBoolean("scaled", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("scale fail",false)+"");
+                        if(preferences.getBoolean("scale fail", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("blocked by ball",false)+"");
+                        if(preferences.getBoolean("blocked by ball", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("tipped over",false)+"");
+                        if(preferences.getBoolean("tipped over", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("dead",false)+"");
+                        if(preferences.getBoolean("dead", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("intermittent",false)+"");
+                        if(preferences.getBoolean("intermittent", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
-                        writer.append(preferences.getBoolean("good pick", false)+"");
+                        if(preferences.getBoolean("good pick", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append(",");
                         writer.append(preferences.getString("comments","COMMENTS"));
+                        writer.append(",");
+                        writer.append(preferences.getInt("rzClearedGear",0)+"");
+                        writer.append(",");
+                        writer.append(preferences.getInt("rzDroppedGear",0)+"");
+                        writer.append(",");
+                        writer.append(preferences.getInt("rzFouls",0)+"");
+                        writer.append(",");
+                        if(preferences.getBoolean("gearStuckInRobot", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
+                        writer.append(",");
+                        if(preferences.getBoolean("avoidedChokePoint", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append("\n");
                         writer.flush();
                         writer.close();

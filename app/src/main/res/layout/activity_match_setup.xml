@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtRedOrBlue"
         android:layout_alignLeft="@+id/spnTeamSpinner"
-        android:layout_marginLeft="-110dp"
+        android:layout_marginLeft="-125dp"
         android:textSize="20sp"
         android:text="Red or Blue?"/>
 

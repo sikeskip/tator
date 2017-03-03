@@ -60,6 +60,16 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Gear Stuck in robot"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="0dp"
+        android:layout_alignTop="@+id/ckBxTippedOver"
+        android:layout_alignLeft="@+id/ckBxTippedOver"
+        android:id="@+id/ckBxStuckGear" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Blocked By Ball"
         android:layout_marginTop="0dp"
         android:layout_marginLeft="200dp"
@@ -84,6 +94,16 @@
         android:layout_alignTop="@+id/ckBxScaled"
         android:layout_alignLeft="@+id/ckBxScaled"
         android:id="@+id/ckBxScaleFail" />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Avoided Airship Choke Point"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="0dp"
+        android:layout_alignTop="@+id/ckBxScaleFail"
+        android:layout_alignLeft="@+id/ckBxScaleFail"
+        android:id="@+id/ckBxChokePoint"/>
+
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
