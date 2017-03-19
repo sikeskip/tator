@@ -113,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         counter:text="Gears Placed"
-        counter:textColor="#0000FF"
+        counter:textColor="#00ffFF"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="80dp"
         android:layout_alignTop="@+id/imgField"
@@ -126,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         counter:text="Gears Placed"
-        counter:textColor="#0000FF"
+        counter:textColor="#00ffFF"
         android:layout_marginLeft="-30dp"
         android:layout_marginTop="60dp"
         android:layout_alignTop="@+id/ctGearPlace1"
@@ -139,7 +139,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         counter:text="Gears Placed"
-        counter:textColor="#0000ff"
+        counter:textColor="#00ffff"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="60dp"
         android:layout_alignTop="@+id/ctGearPlace2"
@@ -257,7 +257,7 @@
         android:layout_alignTop="@+id/ckBxDumpedHopperColor"
         android:layout_alignLeft="@+id/ckBxDumpedHopperColor"
         android:id="@+id/ctRZFouls"
-        counter:textColor="#0000ff"
+        counter:textColor="#00ffff"
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
@@ -269,7 +269,7 @@
         android:layout_alignTop="@+id/ctRZFouls"
         android:layout_alignLeft="@+id/ctRZFouls"
         android:id="@+id/ctRZClearedGear"
-        counter:textColor="#0000ff"
+        counter:textColor="#00ffff"
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
@@ -281,7 +281,7 @@
         android:layout_alignTop="@+id/ctRZClearedGear"
         android:layout_alignLeft="@+id/ctRZClearedGear"
         android:id="@+id/ctRZDroppedGear"
-        counter:textColor="#0000ff"
+        counter:textColor="#00ffff"
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
 </RelativeLayout>

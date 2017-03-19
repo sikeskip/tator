@@ -110,6 +110,9 @@ public class Auto extends AppCompatActivity {
                     else if(gearPlacement3.isChecked()){
                         editor.putInt("gearPlacement", 3);
                     }
+                    else {
+                        editor.putInt("gearPlacement", 0);
+                    }
                     //hoppers
                     editor.putBoolean("hopper1",hopperPlace1.isChecked());
                     editor.putBoolean("hopper2",hopperPlace2.isChecked());
@@ -136,19 +139,19 @@ public class Auto extends AppCompatActivity {
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearFail:
-                    ary =new CheckBox[]{noGear};
+                    ary =new CheckBox[]{noGear,gearPlacement1,gearPlacement2,gearPlacement3};
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg1:
-                    ary =new CheckBox[]{noGear};
+                    ary =new CheckBox[]{noGear,gearFail};
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg2:
-                    ary =new CheckBox[]{noGear};
+                    ary =new CheckBox[]{noGear,gearFail};
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg3:
-                    ary =new CheckBox[]{noGear};
+                    ary =new CheckBox[]{noGear,gearFail};
                     UncheckBoxes(ary);
                     break;
             }

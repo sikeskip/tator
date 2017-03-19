@@ -106,7 +106,7 @@ public class Comments extends AppCompatActivity {
                             Log.d("CREATION", "no old file");
                         }
                     }
-                    try{//ALL BOOLEANS TO 0 OR 1<><><><>><><><><><><><><><><><><><><>
+                    try{
                         FileWriter writer;
                         writer = new FileWriter(file,true);
                         writer.append(preferences.getString("team","TEAM"));
@@ -336,7 +336,7 @@ public class Comments extends AppCompatActivity {
                         Toast.makeText(context, "File Writer Failed", Toast.LENGTH_SHORT).show();
                     }
                     SharedPreferences.Editor editorTwo = preferences.edit();
-                    editorThree.putBoolean("nuke old file",false);
+                    editorTwo.putBoolean("nuke old file",false);
                     editorTwo.putInt("match end",preferences.getInt("match end",1)+1);
                     editorTwo.putInt("match", preferences.getInt("match", 0) + 1);
                     editorTwo.commit();
