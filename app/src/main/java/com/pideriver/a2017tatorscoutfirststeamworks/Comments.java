@@ -322,6 +322,13 @@ public class Comments extends AppCompatActivity {
                         else{
                             writer.append("0");
                         }
+                        writer.append(",");
+                        if(preferences.getBoolean("groundPickGears", false)){
+                            writer.append("1");
+                        }
+                        else{
+                            writer.append("0");
+                        }
                         writer.append("\n");
                         writer.flush();
                         writer.close();

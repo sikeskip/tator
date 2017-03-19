@@ -25,6 +25,7 @@ public class Teleop extends AppCompatActivity {
     CheckBox hopper4;
     CheckBox hopper5;
     CheckBox tooQuickToCount;
+    CheckBox groundPickGears;
 
     Counter lowGoalDumps;
     Counter highGoals;
@@ -56,6 +57,7 @@ public class Teleop extends AppCompatActivity {
         hopper4 = (CheckBox)findViewById(R.id.ckBxDumpedHopper4);
         hopper5 = (CheckBox)findViewById(R.id.ckBxDumpedHopper5);
         tooQuickToCount = (CheckBox)findViewById(R.id.ckBxTooQuickToCount);
+        groundPickGears = (CheckBox)findViewById(R.id.ckGroundPickGears);
 
         lowGoalDumps = (Counter)findViewById(R.id.ctLowGoal);
         highGoals = (Counter)findViewById(R.id.ctHighGoal);
@@ -77,6 +79,7 @@ public class Teleop extends AppCompatActivity {
             switch(v.getId()) {
                 case R.id.btnToComments:
                     SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean("groundPickGears",groundPickGears.isChecked());
                     editor.putBoolean("DumpedHopper1",hopper1.isChecked());
                     editor.putBoolean("DumpedHopper2",hopper2.isChecked());
                     editor.putBoolean("DumpedHopper3",hopper3.isChecked());

@@ -97,7 +97,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Avoided Airship Choke Point"
+        android:text="Caught/blocked by traffic jam"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="0dp"
         android:layout_alignTop="@+id/ckBxScaleFail"

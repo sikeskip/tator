@@ -173,6 +173,18 @@
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="80dp"
+        android:text="Can Ground Pick Gears"
+        android:layout_alignTop="@+id/ctGearFail"
+        android:layout_alignLeft="@+id/ctGearFail"
+        android:background="#00ff00"
+        android:textColor="#000000"
+        android:id="@+id/ckGroundPickGears"/>
+
     <!--Hoppers-->
     <CheckBox
         android:text="Dumped Hopper"
@@ -281,7 +293,7 @@
         android:layout_alignTop="@+id/ctRZClearedGear"
         android:layout_alignLeft="@+id/ctRZClearedGear"
         android:id="@+id/ctRZDroppedGear"
-        counter:textColor="#00ffff"
+        counter:textColor="#00ff"
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
 </RelativeLayout>
