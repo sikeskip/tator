@@ -293,7 +293,7 @@
         android:layout_alignTop="@+id/ctRZClearedGear"
         android:layout_alignLeft="@+id/ctRZClearedGear"
         android:id="@+id/ctRZDroppedGear"
-        counter:textColor="#00ff"
+        counter:textColor="#00ffff"
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
 </RelativeLayout>
