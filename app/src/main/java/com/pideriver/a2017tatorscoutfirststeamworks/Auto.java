@@ -140,18 +140,22 @@ public class Auto extends AppCompatActivity {
                     break;
                 case R.id.ckBxGearFail:
                     ary =new CheckBox[]{noGear,gearPlacement1,gearPlacement2,gearPlacement3};
+                    crossedLine.setChecked(true);
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg1:
                     ary =new CheckBox[]{noGear,gearFail};
+                    crossedLine.setChecked(true);
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg2:
                     ary =new CheckBox[]{noGear,gearFail};
+                    crossedLine.setChecked(true);
                     UncheckBoxes(ary);
                     break;
                 case R.id.ckBxGearPeg3:
                     ary =new CheckBox[]{noGear,gearFail};
+                    crossedLine.setChecked(true);
                     UncheckBoxes(ary);
                     break;
             }
