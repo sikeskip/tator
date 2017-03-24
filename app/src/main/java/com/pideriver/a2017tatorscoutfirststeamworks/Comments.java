@@ -61,11 +61,20 @@ public class Comments extends AppCompatActivity {
         goodPick=(CheckBox) findViewById(R.id.ckBxSecondPick);
         gearStuckInRobot=(CheckBox)findViewById(R.id.ckBxStuckGear);
         avoidedChokePoint=(CheckBox)findViewById(R.id.ckBxChokePoint);
+
+        scaled.setOnClickListener(listen);
+        scaledFailed.setOnClickListener(listen);
     }
 
     private View.OnClickListener listen = new View.OnClickListener(){
         public void onClick(View v){
             switch(v.getId()) {
+                case R.id.ckBxScaled:
+                    scaledFailed.setChecked(false);
+                    break;
+                case R.id.ckBxScaleFail:
+                    scaled.setChecked(false);
+                    break;
                 case R.id.btnToNextMatch:
 
                     SharedPreferences.Editor editor = preferences.edit();
@@ -301,7 +310,12 @@ public class Comments extends AppCompatActivity {
                             writer.append("0");
                         }
                         writer.append(",");
-                        writer.append(preferences.getString("comments","COMMENTS"));
+                        if(preferences.getString("comments","COMMENTS").equals("") || preferences.getString("comments","COMMENTS").equals("COMMENTS")){
+                            writer.append("NO COMMENT");
+                        }
+                        else {
+                            writer.append(preferences.getString("comments", "COMMENTS"));
+                        }
                         writer.append(",");
                         writer.append(preferences.getInt("rzClearedGear",0)+"");
                         writer.append(",");

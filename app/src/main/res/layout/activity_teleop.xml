@@ -178,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="80dp"
-        android:text="Can Ground Pick Gears"
+        android:text="Did Ground Pick Gears"
         android:layout_alignTop="@+id/ctGearFail"
         android:layout_alignLeft="@+id/ctGearFail"
         android:background="#00ff00"
@@ -260,8 +260,19 @@
 
     <!--Retreival Zone-->
     <!--foul ct, cleared gear RZ ct, Dropped gear RZ ct-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retrival Zone"
+        android:layout_alignLeft="@+id/ctRZFouls"
+        android:layout_alignTop="@+id/ctRZFouls"
+        android:layout_marginTop="-20dp"
+        android:layout_marginLeft="25dp"
+        android:textSize="18dp"
+        android:textColor="#00ffff"/>
+
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
-        counter:text="RZ Foul"
+        counter:text="Foul"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginLeft="0dp"
@@ -273,7 +284,7 @@
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
-        counter:text="RZ Cleared Gear"
+        counter:text="Cleared Gear"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginLeft="0dp"
@@ -285,7 +296,7 @@
         counter:min="0">
     </com.pideriver.a2017tatorscoutfirststeamworks.Counter>
     <com.pideriver.a2017tatorscoutfirststeamworks.Counter
-        counter:text="RZ Droped Gear"
+        counter:text="Dropped Gear"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginLeft="0dp"
