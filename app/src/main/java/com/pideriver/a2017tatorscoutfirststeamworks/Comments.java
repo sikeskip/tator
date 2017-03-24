@@ -241,7 +241,7 @@ public class Comments extends AppCompatActivity {
                         writer.append(",");
                         writer.append(preferences.getInt("GearsPlaced3",0)+"");
                         writer.append(",");
-                        writer.append(preferences.getInt("accuracyTeleop",0)+"");
+                        writer.append(preferences.getInt("accuracyTele",0)+"");
                         writer.append(",");
                         if(preferences.getBoolean("defended", false)){
                             writer.append("1");
