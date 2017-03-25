@@ -53,7 +53,7 @@ public class MatchSetup extends AppCompatActivity {
 
     private EditText matchNum;
 
-
+    private EditText scoutName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +76,7 @@ public class MatchSetup extends AppCompatActivity {
         spnTeamSpinner = (Spinner) findViewById(R.id.spnTeamSpinner);
         imgFieldSetup = (ImageView) findViewById(R.id.imgFieldSetup);
         matchNum = (EditText)findViewById(R.id.matchNum);
+        scoutName = (EditText)findViewById(R.id.ETscoutName);
         //Setting Up Spinner
         spinnerAry = new String[7];
         //DummyData
@@ -83,6 +84,7 @@ public class MatchSetup extends AppCompatActivity {
         preferences = this.getSharedPreferences("preferences", MODE_PRIVATE);
         context = this;
         matchNum.setText(preferences.getInt("match", 1)+"");
+        scoutName.setText(preferences.getString("scoutName",""));
         //Initializing Views
         radStartPos1 = (RadioButton) findViewById(R.id.radStartPos1);
         radStartPos2 = (RadioButton) findViewById(R.id.radStartPos2);
@@ -200,7 +202,9 @@ public class MatchSetup extends AppCompatActivity {
         editor.putString("allianceColor", redOrBlue.getCheckedButtonName());
         editor.putInt("match", Integer.parseInt(matchNum.getText().toString()));
         editor.putInt("match end", Integer.parseInt(matchNum.getText().toString()));
+        editor.putString("scoutName", scoutName.getText().toString());
         editor.putString("team", spnTeamSpinner.getSelectedItem().toString().replaceAll(",.*", ""));
+        editor.putBoolean("didAppend",false);
         editor.commit();
     }
 

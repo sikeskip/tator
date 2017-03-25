@@ -77,6 +77,14 @@ public class Comments extends AppCompatActivity {
                     break;
                 case R.id.btnToNextMatch:
 
+                    if(preferences.getBoolean("didAppend",false)){
+                        System.out.println("had appended");
+                        Intent intent  = new Intent(context,MatchSetup.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    System.out.println("appending");
+
                     SharedPreferences.Editor editor = preferences.edit();
 
                     editor.putString("comments", comments.getText().toString().replaceAll(",", "").replaceAll("\n"," "));
@@ -360,6 +368,7 @@ public class Comments extends AppCompatActivity {
                     editorTwo.putBoolean("nuke old file",false);
                     editorTwo.putInt("match end",preferences.getInt("match end",1)+1);
                     editorTwo.putInt("match", preferences.getInt("match", 0) + 1);
+                    editorTwo.putBoolean("didAppend",true);
                     editorTwo.commit();
 
                     Intent intent  = new Intent(context,MatchSetup.class);
